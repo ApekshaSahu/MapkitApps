@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,56 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="MapkitApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgI-q9-Sob">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcC-wE-fbS">
+                                <rect key="frame" x="153" y="615" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iu-27" translatesAutoresizingMaskIntoConstraints="NO" id="I5y-Do-4GN">
+                                <rect key="frame" x="170" y="281" width="33" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="az6-Sx-IT0"/>
+                                    <constraint firstAttribute="height" constant="34" id="b3v-Qy-Am5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zgI-q9-Sob" firstAttribute="bottom" secondItem="4qk-I5-YsI" secondAttribute="bottom" constant="-52" id="9fb-5F-u8G"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="I5y-Do-4GN" secondAttribute="bottom" constant="352" id="BrV-vC-LeX"/>
+                            <constraint firstAttribute="trailing" secondItem="zgI-q9-Sob" secondAttribute="trailing" id="DOd-uq-Jw6"/>
+                            <constraint firstItem="zgI-q9-Sob" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="EXm-vS-Zag"/>
+                            <constraint firstItem="I5y-Do-4GN" firstAttribute="centerX" secondItem="zgI-q9-Sob" secondAttribute="centerX" constant="-1" id="HfU-ed-dYW"/>
+                            <constraint firstItem="I5y-Do-4GN" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="261" id="M7Q-1c-kU3"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="UcC-wE-fbS" secondAttribute="trailing" constant="157" id="QkF-42-EA3"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="UcC-wE-fbS" secondAttribute="bottom" constant="31" id="gjd-cY-yxO"/>
+                            <constraint firstItem="UcC-wE-fbS" firstAttribute="top" secondItem="zgI-q9-Sob" secondAttribute="bottom" id="jwd-zV-J1A"/>
+                            <constraint firstItem="UcC-wE-fbS" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="153" id="m9E-vd-CWu"/>
+                            <constraint firstItem="I5y-Do-4GN" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="170" id="o0T-yy-c2s"/>
+                            <constraint firstItem="zgI-q9-Sob" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="zV3-MO-3oz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="UcC-wE-fbS" id="SGU-Jl-9Jf"/>
+                        <outlet property="mapKitViews" destination="zgI-q9-Sob" id="qn5-8E-7ni"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="61.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iu-27" width="50" height="50"/>
+    </resources>
 </document>
